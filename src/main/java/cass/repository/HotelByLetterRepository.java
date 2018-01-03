@@ -9,4 +9,5 @@ public interface HotelByLetterRepository {
     List<HotelByLetter> findByFirstLetter(String letter);
     HotelByLetter save(HotelByLetter hotelByLetter);
     void delete(HotelByLetterKey hotelByLetterKey);
+	void deleteAll();
 }

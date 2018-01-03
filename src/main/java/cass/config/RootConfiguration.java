@@ -10,10 +10,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RootConfiguration {
 
-    @Bean
-    public HotelService hotelService(HotelRepository hotelRepository,
-                                     HotelByLetterRepository hotelByLetterRepository) {
-        return new HotelServiceImpl(hotelRepository, hotelByLetterRepository);
-    }
+	@Bean
+	public HotelService hotelService(HotelRepository hotelRepository, HotelByLetterRepository hotelByLetterRepository) {
+		return new HotelServiceImpl(hotelRepository, hotelByLetterRepository);
+	}
 
 }

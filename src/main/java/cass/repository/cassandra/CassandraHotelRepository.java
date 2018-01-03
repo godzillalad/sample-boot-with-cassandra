@@ -1,6 +1,8 @@
-package cass.repository;
+package cass.repository.cassandra;
 
 import cass.domain.Hotel;
+import cass.repository.HotelRepository;
+
 import com.datastax.driver.core.querybuilder.QueryBuilder;
 import com.datastax.driver.core.querybuilder.Select;
 import org.springframework.data.cassandra.core.CassandraOperations;
@@ -44,4 +46,16 @@ public class CassandraHotelRepository implements HotelRepository {
         select.where(QueryBuilder.eq("state", state));
         return this.cassandraTemplate.select(select, Hotel.class);
     }
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public List<Hotel> findAll() {
+		 return this.cassandraTemplate.selectAll(Hotel.class);
+	}
+
+	@Override
+	public void deleteAll() {
+		 this.cassandraTemplate.deleteAll(Hotel.class);
+		
+	}
 }
