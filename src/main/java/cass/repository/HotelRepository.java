@@ -11,4 +11,6 @@ public interface HotelRepository  {
     Hotel findOne(UUID hotelId);
     void delete(UUID hotelId);
     List<Hotel> findByState(String state);
+    List<Hotel> findAll();
+	void deleteAll();
 }

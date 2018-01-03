@@ -65,4 +65,16 @@ public class HotelServiceImpl implements HotelService {
     public List<Hotel> findHotelsInState(String state) {
         return this.hotelRepository.findByState(state);
     }
+
+	@Override
+	public List<Hotel> findAll() {
+		return this.hotelRepository.findAll();
+	}
+
+	@Override
+	public void deleteAll() {
+		this.hotelRepository.deleteAll();
+		this.hotelByLetterRepository.deleteAll();
+		
+	}
 }

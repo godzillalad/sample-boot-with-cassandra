@@ -1,48 +1,50 @@
 package cass.domain;
 
+import java.io.Serializable;
+import java.util.UUID;
+
 import org.springframework.cassandra.core.Ordering;
 import org.springframework.cassandra.core.PrimaryKeyType;
 import org.springframework.data.cassandra.mapping.PrimaryKeyClass;
 import org.springframework.data.cassandra.mapping.PrimaryKeyColumn;
 
-import java.io.Serializable;
-import java.util.UUID;
-
 @PrimaryKeyClass
 public class HotelByLetterKey implements Serializable {
 
-    @PrimaryKeyColumn(name="first_letter", ordinal = 0, type = PrimaryKeyType.PARTITIONED)
-    private String firstLetter;
+	private static final long serialVersionUID = 1L;
 
-    @PrimaryKeyColumn(name="hotel_name", ordinal = 0, type = PrimaryKeyType.CLUSTERED, ordering = Ordering.ASCENDING)
-    private String name;
+	@PrimaryKeyColumn(name = "first_letter", ordinal = 0, type = PrimaryKeyType.PARTITIONED)
+	private String firstLetter;
 
-    @PrimaryKeyColumn(name="hotel_id", ordinal = 1, type = PrimaryKeyType.CLUSTERED, ordering = Ordering.ASCENDING)
-    private UUID hotelId;
-    
-    public UUID getHotelId() {
-        return hotelId;
-    }
+	@PrimaryKeyColumn(name = "hotel_name", ordinal = 0, type = PrimaryKeyType.CLUSTERED, ordering = Ordering.ASCENDING)
+	private String name;
 
-    public void setHotelId(UUID hotelId) {
-        this.hotelId = hotelId;
-    }
+	@PrimaryKeyColumn(name = "hotel_id", ordinal = 1, type = PrimaryKeyType.CLUSTERED, ordering = Ordering.ASCENDING)
+	private UUID hotelId;
 
-    public String getName() {
-        return name;
-    }
+	public UUID getHotelId() {
+		return hotelId;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setHotelId(UUID hotelId) {
+		this.hotelId = hotelId;
+	}
 
-    public String getFirstLetter() {
+	public String getName() {
+		return name;
+	}
 
-        return firstLetter;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setFirstLetter(String firstLetter) {
-        this.firstLetter = firstLetter;
-    }
-    
+	public String getFirstLetter() {
+
+		return firstLetter;
+	}
+
+	public void setFirstLetter(String firstLetter) {
+		this.firstLetter = firstLetter;
+	}
+
 }

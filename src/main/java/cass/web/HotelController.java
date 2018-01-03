@@ -21,6 +21,12 @@ public class HotelController {
     public HotelController(HotelService hotelService) {
         this.hotelService = hotelService;
     }
+    
+    @GetMapping(path = "/")
+    public List<Hotel> get() {
+        return this.hotelService.findAll();
+    }
+
 
     @GetMapping(path = "/{id}")
     public Hotel get(@PathVariable("id") UUID uuid) {
