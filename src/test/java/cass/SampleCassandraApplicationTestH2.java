@@ -25,7 +25,7 @@ import org.springframework.test.web.servlet.MvcResult;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-public class SampleCassandraApplicationTest {
+public class SampleCassandraApplicationTestH2 {
 
 	@Autowired
 	private MockMvc mvc;
